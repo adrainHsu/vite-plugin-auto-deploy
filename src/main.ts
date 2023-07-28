@@ -1,42 +1,49 @@
-import { PluginOption } from 'vite'
-const { NodeSSH }= require('node-ssh')
-require('console-color-mr')
+import { PluginOption } from "vite";
+const { NodeSSH } = require("node-ssh");
+require("console-color-mr");
 
 import { makeMulti, strLog } from "./stringLog";
-const ssh = new NodeSSH()
-let options:TypeOptions
+const ssh = new NodeSSH();
+let options: TypeOptions;
 
 interface TypeOptions {
-  host: string
-  username: string
-  password: string
-  remotePath: string
-  port?: number
+  host: string;
+  username: string;
+  password: string;
+  remotePath: string;
+  port?: number;
 }
 
-
-export default function autoDeployPlugin(objOptions: TypeOptions) {
-  let outputPath: string | undefined = ''
-  options = objOptions
+function autoDeployPlugin(objOptions: TypeOptions) {
+  let outputPath: string | undefined = "";
+  options = objOptions;
 
   return {
-    name: 'vite-plugin-auto-deploy',
-    apply: 'build',
+    name: "vite-plugin-auto-deploy",
+    apply: "build",
     outputOptions(outputOptions) {
-      outputPath = outputOptions.dir
+      outputPath = outputOptions.dir;
     },
     async closeBundle() {
       console.debug(makeMulti(strLog));
       console.log("");
-      console.info("  ============================ vite-plugin-auto-deploy start =============================");
+      console.info(
+        "  ============================ vite-plugin-auto-deploy start ============================="
+      );
       console.log("");
-      console.log("                        Start connecting to server 开始连接服务器~");
+      console.log(
+        "                        Start connecting to server 开始连接服务器~"
+      );
       console.log("");
-      if(!outputPath){return}
+      if (!outputPath) {
+        return;
+      }
       // 2.连接远程服务器 SSH
       try {
         await connectServer();
-        console.info("  ------------------------------       连接服务器成功       ------------------------------");
+        console.info(
+          "  ------------------------------       连接服务器成功       ------------------------------"
+        );
         // 3.删除文件夹原来的内容
         let remotePath = options.remotePath;
         const isRemotePathSlash = remotePath.endsWith("/");
@@ -49,7 +56,9 @@ export default function autoDeployPlugin(objOptions: TypeOptions) {
           // 3.3 当有权限时
           // 4.将文件夹中资源上传到服务器
           console.log("");
-          console.log("                                      资源上传进行中...");
+          console.log(
+            "                                      资源上传进行中..."
+          );
           console.log("");
           await uploadFiles(outputPath, remotePath);
         }
@@ -68,16 +77,16 @@ export default function autoDeployPlugin(objOptions: TypeOptions) {
         ssh.dispose();
       } catch (err) {
         console.error("  服务器连接错误，请检配置参数是否正确");
-        console.error("  "+err);
+        console.error("  " + err);
         console.info(
           "  ==============================  automatic-deployment end  =============================="
         );
       }
-    }
-  } as PluginOption
+    },
+  } as PluginOption;
 }
 
-async function connectServer(){  
+async function connectServer() {
   await ssh.connect({
     host: options.host,
     username: options.username,
@@ -100,3 +109,6 @@ async function uploadFiles(localPath: string, remotePath: string) {
     );
   }
 }
+
+export default autoDeployPlugin;
+export { autoDeployPlugin };

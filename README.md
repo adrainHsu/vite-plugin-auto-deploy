@@ -1,7 +1,7 @@
 
 # vite-plugin-auto-deploy
 <p align="center">
-<img width="640" src="./src/assets/images/logo-with-shadow.png" alt="vite-plugin-auto-deploy" />
+<img width="300" src="./src/assets/images/logo-with-shadow.png" alt="vite-plugin-auto-deploy" />
 </p>
 <p align="center">
 <img width="730" src="./src/assets/images/auto_header.png" alt="vite-plugin-auto-deploy" />

@@ -2,7 +2,7 @@
   "name": "vite-plugin-auto-deploy",
   "version": "1.0.0",
   "description": "vite自动化布署插件",
-  "main": "./lib/main.ts",
+  "main": "./lib/main.js",
   "types": "./lib/main.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
