@@ -1,0 +1,46 @@
+{
+  "name": "vite-plugin-auto-deploy",
+  "version": "1.0.0",
+  "description": "vite自动化布署插件",
+  "main": "./lib/main.ts",
+  "types": "./lib/main.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "release": "tsc && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrainHsu/vite-plugin-auto-deploy.git"
+  },
+  "keywords": [
+    "自动布署",
+    "自动化布署",
+    "vite自动化布署插件",
+    "auto",
+    "upload",
+    "auto",
+    "deployment",
+    "automatic",
+    "deployment",
+    "vite-plugin-auto-deploy"
+  ],
+  "author": "adrainHsu",
+  "license": "ISC",
+  "files": [
+    "lib/*"
+  ],
+  "bugs": {
+    "url": "https://github.com/adrainHsu/vite-plugin-auto-deploy/issues"
+  },
+  "homepage": "https://github.com/adrainHsu/vite-plugin-auto-deploy#readme",
+  "dependencies": {
+    "console-color-mr": "^2.0.2",
+    "node-ssh": "^13.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.5",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.7"
+  }
+}
