@@ -63,6 +63,8 @@ plugins: [
   }),
 ]
 ```
+🔥 After configuration, run the **npm run build** command to automatically upload and deploy the code to the server after packaging
+💪 配置好后，运行 **npm run build** 命令即可实现代码打包后自动上传部署至服务器
 
 ⚠️ **Attention：**
 * 1.The code in the project requires npm run build packaging to take effect, otherwise the plugin will not take effect
