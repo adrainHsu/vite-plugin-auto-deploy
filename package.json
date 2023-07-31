@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-auto-deploy",
-  "version": "1.1.2",
-  "description": "vite自动化布署插件",
+  "version": "1.2.1",
+  "description": "vite前端项目打包后的代码自动化部署到服务器插件 Automated deployment of packaged project code to server plugins",
   "main": "./lib/main.js",
   "types": "./lib/main.d.ts",
   "scripts": {
@@ -16,17 +16,17 @@
   "keywords": [
     "自动布署",
     "自动化布署",
+    "自动化部署",
     "vite自动化布署插件",
     "auto",
     "upload",
-    "auto",
-    "deployment",
+    "deploy",
     "automatic",
     "deployment",
     "vite-plugin-auto-deploy"
   ],
   "author": "adrainHsu",
-  "license": "ISC",
+  "license": "MIT",
   "files": [
     "lib/*"
   ],
