@@ -1,6 +1,6 @@
 import { PluginOption } from "vite";
 const { NodeSSH } = require("node-ssh");
-require("console-color-mr");
+import("console-color-mr");
 
 import { makeMulti, strLog } from "./stringLog";
 const ssh = new NodeSSH();

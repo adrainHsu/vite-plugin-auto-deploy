@@ -1,0 +1,13 @@
+/dist/*
+.local
+.output.js
+/node_modules/**
+
+**/*.svg
+**/*.sh
+
+/public/*
+.prettierrc.js
+package.json
+package-lock.json
+
