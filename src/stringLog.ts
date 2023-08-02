@@ -9,6 +9,6 @@ export const strLog = function () {
 };
 
 export function makeMulti(string: () => void) {
-  const l = String(string);
+  const l = new String(string);
   return l.substring(l.indexOf("/*") + 3, l.lastIndexOf("*/"));
 }
